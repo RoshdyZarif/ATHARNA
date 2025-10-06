@@ -13,7 +13,6 @@ value = float(known_weight_grams)
 ratio = reading/value
 hx.set_scale_ratio(ratio)
 
-
 while True:
     weight = hx.get_weight_mean()
     print(weight)

@@ -1,14 +1,23 @@
-from gpiozero import Button
-from mqtt import client
-from time import sleep
+import RPi.GPIO as GPIO
+import time
+from mqtt import client  # your existing MQTT client
 
+BUTTON_PIN = 25  # GPIO25
 
-button = Button(25)
+# Set up GPIO
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(BUTTON_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 def AudioPlayer():
-    if not button.is_pressed:
-        client.publish("what is that artifact?", "BUTTON PRESSED") 
-        sleep(5)
+    # When button is pressed, the input reads LOW
+    if GPIO.input(BUTTON_PIN) == GPIO.HIGH:
+        print("Button Pressed!")
+        client.publish("what is that artifact?", "BUTTON PRESSED")
+        time.sleep(5)  # wait to avoid multiple triggers
+
 
 while True:
-    AudioPlayer()
+        AudioPlayer()
+        time.sleep(0.1)  # small delay to reduce CPU usage
+
+

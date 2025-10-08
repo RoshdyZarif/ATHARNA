@@ -3,13 +3,11 @@ import RPi.GPIO as GPIO
 import time
 from mqtt import client
 
-
-MQ2_PIN = 4
+MQ2_PIN = 25
 BUZZER_PIN = 14
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(BUZZER_PIN, GPIO.OUT)
-
 
 mq2 = DigitalInputDevice(MQ2_PIN)
 
@@ -21,9 +19,12 @@ def alert():
         time.sleep(0.1)
 
 def gas():
+   
+    while True:
         if mq2.value == 0:
             alert()
-            client.publish("GasLevel","DANGER")
+            client.publish("GasLevel", "DANGER")
         else:
-            client.publish("GasLevel","SAFE")
-
+            client.publish("GasLevel", "SAFE")
+        time.sleep(0.1)
+    

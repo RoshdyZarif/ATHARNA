@@ -1,0 +1,39 @@
+name: atharna
+description: "Step into \"Atharna,\" a majestic bilingual app that brings ancient Egyptian heritage to life with a modern twist, offering smart museum experiences, seamless bookings, and artifact scanning, all wrapped in a stunning, responsive design."
+publish_to: "none"
+version: 1.0.0
+
+environment:
+  sdk: ^3.6.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  google_fonts: ^6.1.0
+  firebase_core: ^4.1.1
+  firebase_auth: '>=5.3.3'
+  cloud_firestore: '>=5.5.0'
+  provider: ^6.0.0
+  shared_preferences: ^2.0.0
+  mobile_scanner: ^7.0.0
+  intl: 0.20.2
+  uuid: ^4.0.0
+  http: ^1.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: assets/images/logo.png
+  remove_alpha_ios: true

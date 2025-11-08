@@ -8,18 +8,20 @@
 ### 🎯 The Problem
 
 Traditional museum security systems rely heavily on human supervision and simple alarms, making them prone to human error and delayed response times. These systems often fail to provide instant alerts for environmental risks (like gas or extreme temperatures) or detect unauthorized handling of artifacts in real-time.
-
+![](Docs/5.png)
 ### 💡 The ATHARNA Solution
 
 ATHARNA introduces an automated, real-time defense mechanism that includes:
 
 1. **Physical Safety Monitoring:** Immediate detection of any tampering or artifact removal attempts using **Load Cell** and **Ultrasonic sensors**.
-    
+    
 2. **Environmental Risk Control:** Continuous monitoring of temperature, humidity, and hazardous gas levels using **DHT11** and **MQ2** sensors.
-    
-3. **Multi-Factor Access Control:** Securing access for authorized restoration staff through **NFC** matching and **Face Detection** authentication.
-    
-4. **Enhanced Visitor Experience:** A full-featured mobile app for booking, reservation management, and interactive artifact information via **QR Code scanning**.
+    
+3. **Secure Access Control:** Securing access for authorized restoration staff through **Face Detection** authentication.
+    
+4. **Enhanced Visitor Experience:** A full-featured mobile app for booking, **NFC-based ticket entry**, and interactive artifact information via **QR Code scanning**.
+
+![](Docs/4.png)
 
 
 ## 🧠 System Architecture & Components
@@ -32,8 +34,8 @@ The system is divided into three main layers: **Edge Layer** (Sensors), **Commun
 |---|---|---|
 |**Load Cell**|Detects minute changes in weight; triggers an alarm if the artifact is lifted.|Anti-Theft|
 |**4x Ultrasonic Sensors**|Creates a virtual barrier around the artifact; alerts upon excessive proximity.|Anti-Tampering|
-|**Camera Module + OpenCV**|**Face Detection** for securing access for authorized restoration personnel.|Access Control|
-|**NFC Module**|**Monitors visitor/staff entry and exit** for accurate visitor count tracking.|Access Control|
+|**Camera Module + OpenCV**|**Face Detection** for securing access for authorized restoration personnel.|Staff Access Control|
+|**NFC Module**|Provides **NFC-based entry for visitors** holding a valid mobile reservation.|Visitor Access|
 |**MQ2 Gas Sensor**|Monitors flammable gases/smoke; triggers a physical alarm (**Buzzer**).|Environmental Safety|
 |**DHT11 Sensor**|Measures and displays ambient temperature and humidity.|Artifact Preservation|
 |**Servo Motor**|Automatic barrier for controlling entry/exit points.|Physical Control|
@@ -66,64 +68,64 @@ The application provides a seamless and effective user experience:
 ### 1. Hardware Setup (Raspberry Pi)
 
 1. Clone the repository:
-    
-    ```
-    git clone https://github.com/RoshdyZarif/ATHARNA
-    cd ATHARNA/hardware
-    ```
-    
+    
+    ```
+    git clone (https://github.com/RoshdyZarif/ATHARNA)
+    cd ATHARNA/hardware
+    ```
+    
 2. Create and activate a Python virtual environment:
-    
-    ```
-    python3 -m venv venv
-    source venv/bin/activate
-    ```
-    
+    
+    ```
+    python3 -m venv venv
+    source venv/bin/activate
+    ```
+    
 3. Install the required Python libraries:
-    
-    ```
-    pip install -r requirements.txt
-    ```
-    
+    
+    ```
+    pip install -r requirements.txt
+    ```
+    
 4. Run the main program (after confirming physical connections):
-    
-    ```
-    python3 Main.py
-    ```
+    
+    ```
+    python3 Main.py
+    ```
 
 
 ### 2. Mobile App Setup (Flutter)
 
 1. Navigate to the Flutter folder:
-    
-    ```
-    cd ../flutter_app
-    ```
-    
+    
+    ```
+    cd ../flutter_app
+    ```
+    
 2. Get dependencies:
-    
-    ```
-    flutter pub get
-    ```
-    
+    
+    ```
+    flutter pub get
+    ```
+    
 3. **Note:** Ensure the Firebase project is correctly linked and configuration files are present.
-    
+    
 4. Run the application:
-    
-    ```
-    flutter run
-    ```
+    
+    ```
+    flutter run
+    ```
 
-You Can Scan this QR Code To Go to Webapp
+You Can Scan this QR Code To Go to WebAPP
 ![](Docs/3.png)
 ## 👥 Team Members
 
 - **Roshdy Zarif**
-    
+    
 - **Bola Sameh**
-    
+    
 - **Mohamed Younis**
-    
+    
 - **William Mounir**
 
 ![](Docs/1.png)
